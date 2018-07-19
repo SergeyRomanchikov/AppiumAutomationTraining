@@ -1,9 +1,15 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 
@@ -36,4 +42,32 @@ public class FirstTest {
         System.out.println("First test run");
     }
 
+
+    private WebElement waitElementPresentByXpath(String xpath, String message){
+        return waitElementPresentByXpath(xpath, message, 5);
+    }
+
+    private WebElement waitElementPresentByID(String id, String message){
+        return waitElementPresentByID(id, message, 5);
+    }
+
+
+    private WebElement waitElementPresentByXpath(String xpath, String message, long timeoutInSeconds){
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+        wait.withMessage(message + "\n");
+        By by = By.xpath(xpath);
+        return wait.until(
+                ExpectedConditions.presenceOfElementLocated(by)
+        );
+    }
+
+    private WebElement waitElementPresentByID(String id, String message, long timeoutInSeconds){
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+        wait.withMessage(message + "\n");
+        By by = By.id(id);
+        return wait.until(
+                ExpectedConditions.presenceOfElementLocated(by)
+        );
+    }
+    
 }
