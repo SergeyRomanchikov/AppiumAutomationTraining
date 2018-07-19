@@ -39,9 +39,19 @@ public class FirstTest {
 
     @Test
     public void firstTest(){
-        System.out.println("First test run");
-    }
 
+        WebElement searchField = driver.findElementByXPath("//*[contains(@text, 'Search Wikipedia')]");
+        searchField.click();
+
+        WebElement searchLine = waitElementPresentByID(
+                "org.wikipedia:id/search_src_text",
+                "Element not found"
+        );
+
+        checkTextValue(
+                searchLine,
+                "Search…");
+    }
 
     private WebElement waitElementPresentByXpath(String xpath, String message){
         return waitElementPresentByXpath(xpath, message, 5);
@@ -50,7 +60,6 @@ public class FirstTest {
     private WebElement waitElementPresentByID(String id, String message){
         return waitElementPresentByID(id, message, 5);
     }
-
 
     private WebElement waitElementPresentByXpath(String xpath, String message, long timeoutInSeconds){
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -69,5 +78,12 @@ public class FirstTest {
                 ExpectedConditions.presenceOfElementLocated(by)
         );
     }
-    
+    private static void checkTextValue(WebElement elementForCheck, String targetValue){
+        String gettedTextValue = elementForCheck.getAttribute("text");
+        Assert.assertEquals(
+                "Mismatch values",
+                targetValue,
+                gettedTextValue
+        );
+    }
 }
