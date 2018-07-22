@@ -56,6 +56,50 @@ public class FirstTest {
                 "Search…");
     }
 
+    @Test
+
+    public void searchResultsCountAndCancelSearch(){
+
+        waitForElementAndClick(
+                By.id("org.wikipedia:id/search_container"),
+                ">>>> Search container not found",
+                5
+        );
+
+        waitForElementAndSendKeys(
+                By.id("org.wikipedia:id/search_src_text"),
+                "Java",
+                ">>>> Search input not found",
+                5
+        );
+
+        List<WebElement> searchResults = webElementsList(
+                By.id("org.wikipedia:id/page_list_item_title"),
+                ">>>> Search results not found",
+                15
+        );
+
+        int countResults = searchResults.size();
+        System.out.println("Number of results: " + countResults);
+
+        Assert.assertTrue(
+                ">>>> Multiple results not found",
+                countResults > 1
+        );
+
+        waitForElementAndClick(
+                By.id("org.wikipedia:id/search_close_btn"),
+                ">>>> Search close button not found",
+                5
+        );
+
+        webElementsListIsNotPresents(
+                searchResults,
+                ">>>> Search results still presents on the page",
+                5
+        );
+    }
+
     private WebElement waitForElementPresent(By by, String message, long timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         wait.withMessage(message + "\n");
@@ -89,11 +133,30 @@ public class FirstTest {
     }
 
     private static void checkTextValue(WebElement elementForCheck, String targetValue) {
-        String gettedTextValue = elementForCheck.getAttribute("text");
+        String receivedTextValue = elementForCheck.getAttribute("text");
         Assert.assertEquals(
                 "Mismatch values",
                 targetValue,
-                gettedTextValue
+                receivedTextValue
+        );
+    }
+
+    private List<WebElement> webElementsList(By by, String message, long timeOutInseconds){
+        WebDriverWait wait = new WebDriverWait(driver, timeOutInseconds);
+        wait.withMessage(message + "\n");
+        return wait.until(
+                ExpectedConditions.presenceOfAllElementsLocatedBy(by)
+        );
+    }
+
+    private boolean webElementsListIsNotPresents(List<WebElement> elementsList, String message, long timeOutInseconds){
+        WebDriverWait wait = new WebDriverWait(driver, timeOutInseconds);
+        wait.withMessage(message + "\n");
+
+        return wait.until(
+                ExpectedConditions.invisibilityOfAllElements(elementsList)
         );
     }
 }
+
+
