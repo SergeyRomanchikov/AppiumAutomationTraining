@@ -57,7 +57,6 @@ public class FirstTest {
     }
 
     @Test
-
     public void searchResultsCountAndCancelSearch() {
 
         waitForElementAndClick(
@@ -104,7 +103,6 @@ public class FirstTest {
     public void searchAndCheckSearchResults() {
 
         String searchRequest = "Apple";
-
         waitForElementAndClick(
                 By.id("org.wikipedia:id/search_container"),
                 ">>>> Search container not found",
@@ -130,7 +128,6 @@ public class FirstTest {
                 ">>>> Search result does not contain search request value"
         );
     }
-
 
     private WebElement waitForElementPresent(By by, String message, long timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -193,7 +190,6 @@ public class FirstTest {
     private void checkElementsInListContainsTextValue(List<WebElement> elementsList, String value, String error_message) {
         for (WebElement anElementsList : elementsList) {
             String searchResultValue = anElementsList.getAttribute("text").toLowerCase();
-            // System.out.println("Search result title number " + (i + 1) + " is: " + searchResultValue);
             Assert.assertTrue(
                     error_message,
                     searchResultValue.contains(value.toLowerCase())
