@@ -58,7 +58,7 @@ public class FirstTest {
 
     @Test
 
-    public void searchResultsCountAndCancelSearch(){
+    public void searchResultsCountAndCancelSearch() {
 
         waitForElementAndClick(
                 By.id("org.wikipedia:id/search_container"),
@@ -99,6 +99,38 @@ public class FirstTest {
                 5
         );
     }
+
+    @Test
+    public void searchAndCheckSearchResults() {
+
+        String searchRequest = "Apple";
+
+        waitForElementAndClick(
+                By.id("org.wikipedia:id/search_container"),
+                ">>>> Search container not found",
+                5
+        );
+
+        waitForElementAndSendKeys(
+                By.id("org.wikipedia:id/search_src_text"),
+                searchRequest,
+                ">>>> Search input not found",
+                5
+        );
+
+        List<WebElement> searchResults = webElementsList(
+                By.id("org.wikipedia:id/page_list_item_title"),
+                ">>>> Search results not found",
+                15
+        );
+
+        checkElementsInListContainsTextValue(
+                searchResults,
+                searchRequest,
+                ">>>> Search result does not contain search request value"
+        );
+    }
+
 
     private WebElement waitForElementPresent(By by, String message, long timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
@@ -141,7 +173,7 @@ public class FirstTest {
         );
     }
 
-    private List<WebElement> webElementsList(By by, String message, long timeOutInseconds){
+    private List<WebElement> webElementsList(By by, String message, long timeOutInseconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInseconds);
         wait.withMessage(message + "\n");
         return wait.until(
@@ -149,13 +181,25 @@ public class FirstTest {
         );
     }
 
-    private boolean webElementsListIsNotPresents(List<WebElement> elementsList, String message, long timeOutInseconds){
+    private boolean webElementsListIsNotPresents(List<WebElement> elementsList, String message, long timeOutInseconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInseconds);
         wait.withMessage(message + "\n");
 
         return wait.until(
                 ExpectedConditions.invisibilityOfAllElements(elementsList)
         );
+    }
+
+    private void checkElementsInListContainsTextValue(List<WebElement> elementsList, String value, String error_message) {
+        for (WebElement anElementsList : elementsList) {
+            String searchResultValue = anElementsList.getAttribute("text").toLowerCase();
+            // System.out.println("Search result title number " + (i + 1) + " is: " + searchResultValue);
+            Assert.assertTrue(
+                    error_message,
+                    searchResultValue.contains(value.toLowerCase())
+            );
+
+        }
     }
 }
 

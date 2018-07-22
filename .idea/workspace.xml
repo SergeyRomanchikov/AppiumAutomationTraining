@@ -17,14 +17,14 @@
       <file leaf-file-name="FirstTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="60" column="49" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="49" />
+            <state relative-caret-position="1800">
+              <caret line="203" column="1" lean-forward="true" selection-start-line="203" selection-start-column="1" selection-end-line="203" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1333#1334#0" expanded="true" />
                 <element signature="e#1362#1363#0" expanded="true" />
-                <element signature="e#2219#2220#0" expanded="true" />
-                <element signature="e#2279#2280#0" expanded="true" />
+                <element signature="e#4418#4419#0" expanded="true" />
+                <element signature="e#4478#4479#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,7 +119,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FirstTest">
+  <component name="RunManager" selected="JUnit.FirstTest.searchAndCheckSearchResults">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -147,6 +147,40 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="FirstTest" />
       <option name="METHOD_NAME" value="firstTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="FirstTest.searchAndCheckSearchResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppiumAutomationTraining" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="searchAndCheckSearchResults" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="FirstTest.searchAndConfirmSearchResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppiumAutomationTraining" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="searchAndConfirmSearchResults" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -216,9 +250,13 @@
       <item itemvalue="JUnit.FirstTest" />
       <item itemvalue="JUnit.FirstTest.firstTest" />
       <item itemvalue="JUnit.FirstTest.searchResults" />
+      <item itemvalue="JUnit.FirstTest.searchAndConfirmSearchResults" />
+      <item itemvalue="JUnit.FirstTest.searchAndCheckSearchResults" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FirstTest.searchAndCheckSearchResults" />
+        <item itemvalue="JUnit.FirstTest.searchAndConfirmSearchResults" />
         <item itemvalue="JUnit.FirstTest" />
         <item itemvalue="JUnit.FirstTest.searchResults" />
         <item itemvalue="JUnit.FirstTest.firstTest" />
@@ -239,35 +277,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest_searchResults - 2018.07.21 at 18h 45m 17s.xml">
-      <configuration name="FirstTest.searchResults" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndConfirmSearchResults - 2018.07.22 at 12h 30m 33s.xml">
+      <configuration name="FirstTest.searchAndConfirmSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_searchResults - 2018.07.21 at 18h 47m 06s.xml">
-      <configuration name="FirstTest.searchResults" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndConfirmSearchResults - 2018.07.22 at 12h 31m 33s.xml">
+      <configuration name="FirstTest.searchAndConfirmSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.21 at 18h 50m 04s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndConfirmSearchResults - 2018.07.22 at 12h 32m 10s.xml">
+      <configuration name="FirstTest.searchAndConfirmSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.22 at 11h 41m 09s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndCheckSearchResults - 2018.07.22 at 12h 34m 01s.xml">
+      <configuration name="FirstTest.searchAndCheckSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.22 at 11h 47m 44s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndCheckSearchResults - 2018.07.22 at 12h 39m 08s.xml">
+      <configuration name="FirstTest.searchAndCheckSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.22 at 11h 50m 47s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndCheckSearchResults - 2018.07.22 at 12h 40m 41s.xml">
+      <configuration name="FirstTest.searchAndCheckSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.22 at 11h 51m 27s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndCheckSearchResults - 2018.07.22 at 12h 43m 11s.xml">
+      <configuration name="FirstTest.searchAndCheckSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.22 at 11h 52m 25s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndCheckSearchResults - 2018.07.22 at 12h 45m 02s.xml">
+      <configuration name="FirstTest.searchAndCheckSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.22 at 11h 55m 05s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndCheckSearchResults - 2018.07.22 at 12h 51m 53s.xml">
+      <configuration name="FirstTest.searchAndCheckSearchResults" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.22 at 12h 03m 10s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_searchAndCheckSearchResults - 2018.07.22 at 12h 56m 20s.xml">
+      <configuration name="FirstTest.searchAndCheckSearchResults" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -314,8 +352,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#2219#2220#0" expanded="true" />
-            <element signature="e#2279#2280#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
+            <element signature="e#4478#4479#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -328,8 +366,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#2219#2220#0" expanded="true" />
-            <element signature="e#2279#2280#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
+            <element signature="e#4478#4479#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -342,8 +380,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#2219#2220#0" expanded="true" />
-            <element signature="e#2279#2280#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
+            <element signature="e#4478#4479#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -353,14 +391,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="60" column="49" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="49" />
+        <state relative-caret-position="1800">
+          <caret line="203" column="1" lean-forward="true" selection-start-line="203" selection-start-column="1" selection-end-line="203" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#2219#2220#0" expanded="true" />
-            <element signature="e#2279#2280#0" expanded="true" />
+            <element signature="e#4418#4419#0" expanded="true" />
+            <element signature="e#4478#4479#0" expanded="true" />
           </folding>
         </state>
       </provider>
