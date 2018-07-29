@@ -17,14 +17,14 @@
       <file leaf-file-name="FirstTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+            <state relative-caret-position="-2054">
+              <caret line="176" column="72" lean-forward="true" selection-start-line="176" selection-start-column="72" selection-end-line="176" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1333#1334#0" expanded="true" />
                 <element signature="e#1362#1363#0" expanded="true" />
-                <element signature="e#6565#6566#0" expanded="true" />
-                <element signature="e#6625#6626#0" expanded="true" />
+                <element signature="e#13231#13232#0" expanded="true" />
+                <element signature="e#13291#13292#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,7 +127,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FirstTest.assertTitle">
+  <component name="RunManager" selected="JUnit.FirstTest.saveArticleToFavoritesAndRemove">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -165,23 +165,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="FirstTest.firstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AppiumAutomationTraining" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FirstTest" />
-      <option name="METHOD_NAME" value="firstTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration name="FirstTest.saveArticleToFavorites" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AppiumAutomationTraining" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -199,13 +182,30 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="FirstTest.searchAndCheckSearchResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FirstTest.saveArticleToFavoritesAndRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AppiumAutomationTraining" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="FirstTest" />
-      <option name="METHOD_NAME" value="searchAndCheckSearchResults" />
+      <option name="METHOD_NAME" value="saveArticleToFavoritesAndRemove" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="FirstTest.searchResultsCountAndCancelSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppiumAutomationTraining" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="searchResultsCountAndCancelSearch" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -256,18 +256,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.FirstTest" />
-      <item itemvalue="JUnit.FirstTest.firstTest" />
-      <item itemvalue="JUnit.FirstTest.searchAndCheckSearchResults" />
       <item itemvalue="JUnit.FirstTest.saveArticleToFavorites" />
       <item itemvalue="JUnit.FirstTest.assertTitle" />
+      <item itemvalue="JUnit.FirstTest.saveArticleToFavoritesAndRemove" />
+      <item itemvalue="JUnit.FirstTest.searchResultsCountAndCancelSearch" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FirstTest.saveArticleToFavoritesAndRemove" />
+        <item itemvalue="JUnit.FirstTest.searchResultsCountAndCancelSearch" />
+        <item itemvalue="JUnit.FirstTest" />
         <item itemvalue="JUnit.FirstTest.assertTitle" />
         <item itemvalue="JUnit.FirstTest.saveArticleToFavorites" />
-        <item itemvalue="JUnit.FirstTest" />
-        <item itemvalue="JUnit.FirstTest.searchAndCheckSearchResults" />
-        <item itemvalue="JUnit.FirstTest.firstTest" />
       </list>
     </recent_temporary>
   </component>
@@ -285,35 +285,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 19m 05s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 28m 26s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 19m 53s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 35m 50s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 21m 43s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 37m 04s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 31m 49s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 39m 13s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 32m 33s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 43m 47s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 33m 15s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 47m 42s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 33m 43s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 49m 16s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 35m 06s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 51m 24s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 35m 35s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 53m 08s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 36m 09s.xml">
-      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
+    <history-entry file="FirstTest_saveArticleToFavoritesAndRemove - 2018.07.29 at 14h 54m 34s.xml">
+      <configuration name="FirstTest.saveArticleToFavoritesAndRemove" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -365,8 +365,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#6565#6566#0" expanded="true" />
-            <element signature="e#6625#6626#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13291#13292#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -379,8 +379,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#6565#6566#0" expanded="true" />
-            <element signature="e#6625#6626#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13291#13292#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -393,8 +393,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#6565#6566#0" expanded="true" />
-            <element signature="e#6625#6626#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13291#13292#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -407,8 +407,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#6565#6566#0" expanded="true" />
-            <element signature="e#6625#6626#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13291#13292#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -421,8 +421,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#6565#6566#0" expanded="true" />
-            <element signature="e#6625#6626#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13291#13292#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -482,14 +482,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+        <state relative-caret-position="-2054">
+          <caret line="176" column="72" lean-forward="true" selection-start-line="176" selection-start-column="72" selection-end-line="176" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#6565#6566#0" expanded="true" />
-            <element signature="e#6625#6626#0" expanded="true" />
+            <element signature="e#13231#13232#0" expanded="true" />
+            <element signature="e#13291#13292#0" expanded="true" />
           </folding>
         </state>
       </provider>

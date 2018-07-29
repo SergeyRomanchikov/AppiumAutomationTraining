@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,6 +33,7 @@ public class FirstTest {
         capabilities.setCapability("appActivity", ".main.MainActivity");
         capabilities.setCapability("app", "/Users/sergeyromanchikov/Documents/GitHub/AppiumAutomationTraining/apks/org.wikipedia.apk");
         capabilities.setCapability("orientation", "PORTRAIT");
+        // capabilities.setCapability("fullReset", "true");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
     }
@@ -138,7 +140,6 @@ public class FirstTest {
 
         String searchRequest = "Apple";
         //String addToReadListButtonXPath = "//*[contains(@text, 'Add to reading list')]";
-
         String addToReadListButtonXPath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[3]";
 
         String gotItButtonID = "org.wikipedia:id/onboarding_button";
@@ -170,19 +171,14 @@ public class FirstTest {
         int countResults = searchResults.size();
         System.out.println("Results per page: " + countResults);
 
-        int articleNumber_01 = getRandomNumberInRange(0, countResults - 1);
-        int articleNumber_02 = getRandomNumberInRange(0, countResults - 1);
-        while (articleNumber_01 == articleNumber_02) {
-            articleNumber_02 = getRandomNumberInRange(0, countResults);
+        int article_01_number = getRandomNumberInRange(0, countResults - 1);
+        int article_02_number = getRandomNumberInRange(0, countResults - 1);
+        while (article_01_number == article_02_number) {
+            article_02_number = getRandomNumberInRange(0, countResults);
         }
 
-        WebElement article_01 = searchResults.get(articleNumber_01);
-        WebElement article_02 = searchResults.get(articleNumber_02);
-
-        String articleTitle_01 = article_01.getAttribute("text");
-        String articleTitle_02 = article_02.getAttribute("text");
-        System.out.println("Article 01 is: " + articleTitle_01);
-        System.out.println("Article 02 is: " + articleTitle_02);
+        WebElement article_01 = searchResults.get(article_01_number);
+        WebElement article_02 = searchResults.get(article_02_number);
 
         // Add to ReadList --- Article_01 //
 
@@ -294,39 +290,62 @@ public class FirstTest {
 
         // Check articles is saved //
 
-        String article_01_xpath = "//*[contains(@text, '" + articleTitle_01 + "')]";
-        String article_02_xpath = "//*[contains(@text, '" + articleTitle_02 + "')]";
+        List<WebElement> savedArticles = webElementsList(
+                By.id("org.wikipedia:id/page_list_item_title"),
+                ">>>> Saved articles not found",
+                5
+        );
+
+        int countSavedArticles = savedArticles.size();
+        System.out.println("Count of saved articles: " + countSavedArticles);
+        WebElement articleToDelete = savedArticles.get(countSavedArticles - 1);
+        WebElement articleToCheck = savedArticles.get(0);
+        String articleToDeleteTitle = articleToDelete.getAttribute("text");
+        String articleToCheckTitle = articleToCheck.getAttribute("text");
+
+        System.out.println("Article to delete: " + articleToDeleteTitle);
+        System.out.println("Article to check: " + articleToCheckTitle);
+
+
+        String articleToDeleteXpath = "//*[contains(@text, '" + articleToDeleteTitle + "')]";
+        String articleToCheckXpath = "//*[contains(@text, '" + articleToCheckTitle + "')]";
 
         waitForElementPresent(
-                By.xpath(article_01_xpath),
+                By.xpath(articleToDeleteXpath),
                 ">>>> Article 01 not displayed",
                 5
         );
 
         waitForElementPresent(
-                By.xpath(article_02_xpath),
+                By.xpath(articleToCheckXpath),
                 ">>>> Article 01 not displayed",
                 5
         );
 
         // Delete element from read list //
 
+
         swipeElementToLeft(
-                By.xpath("//*[contains(@text, '" + articleTitle_01 + "')]/../../*[@resource-id='org.wikipedia:id/page_list_item_action_primary']"),
+                By.xpath(articleToDeleteXpath + "/../../*[@resource-id='org.wikipedia:id/page_list_item_action_primary']"),
                 ">>>> Cannot swipe to the left on element"
         );
 
+        waitForElementPresent(
+                By.id("org.wikipedia:id/snackbar_text"),
+                ">>>> Snackbar message not displayed"
+        );
+
         waitForElementNotPresent(
-                By.xpath("//*[contains(@text, '" + articleTitle_01 + "')]"),
-                ">>>> Element " + "'" + article_01_xpath + "'" + " still displayed",
+                By.xpath(articleToDeleteXpath),
+                ">>>> Element " + "'" + articleToDeleteTitle + "'" + " still displayed",
                 10
         );
 
         // Open saved article //
 
         waitForElementAndClick(
-                By.xpath("//*[contains(@text, '" + articleTitle_02 + "')]"),
-                ">>>> Element " + "'" + article_02_xpath + "'" + " not found",
+                By.xpath(articleToCheckXpath),
+                ">>>> Element " + "'" + articleToCheckTitle + "'" + " not found",
                 5
         );
 
@@ -337,8 +356,8 @@ public class FirstTest {
         ).getAttribute("text");
 
         Assert.assertEquals(
-                ">>>>  Title '" + currentArticleTitle + "' not equals '" + articleTitle_02 + "'",
-                articleTitle_02,
+                ">>>>  Title '" + currentArticleTitle + "' not equals '" + articleToCheckTitle + "'",
+                articleToCheckTitle,
                 currentArticleTitle);
 
 
@@ -383,8 +402,6 @@ public class FirstTest {
                 By.id("org.wikipedia:id/view_page_title_text"),
                 ">>>>  Article title not found"
         );
-
-
     }
 
 
