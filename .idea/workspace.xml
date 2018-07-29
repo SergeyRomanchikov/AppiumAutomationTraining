@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38b7ebde-1154-40a8-bde9-b5073e4f9a99" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FirstTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="FirstTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="134" column="49" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="49" />
+            <state relative-caret-position="2791">
+              <caret line="520" lean-forward="true" selection-start-line="520" selection-end-line="520" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1333#1334#0" expanded="true" />
@@ -58,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="830" />
@@ -128,7 +127,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FirstTest.saveArticleToFavorites">
+  <component name="RunManager" selected="JUnit.FirstTest.assertTitle">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -140,6 +139,23 @@
       <option name="MAIN_CLASS_NAME" value="FirstTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="FirstTest.assertTitle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AppiumAutomationTraining" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="assertTitle" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -200,23 +216,6 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="FirstTest.tempTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AppiumAutomationTraining" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FirstTest" />
-      <option name="METHOD_NAME" value="tempTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -260,15 +259,15 @@
       <item itemvalue="JUnit.FirstTest.firstTest" />
       <item itemvalue="JUnit.FirstTest.searchAndCheckSearchResults" />
       <item itemvalue="JUnit.FirstTest.saveArticleToFavorites" />
-      <item itemvalue="JUnit.FirstTest.tempTest" />
+      <item itemvalue="JUnit.FirstTest.assertTitle" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FirstTest.assertTitle" />
         <item itemvalue="JUnit.FirstTest.saveArticleToFavorites" />
         <item itemvalue="JUnit.FirstTest" />
         <item itemvalue="JUnit.FirstTest.searchAndCheckSearchResults" />
         <item itemvalue="JUnit.FirstTest.firstTest" />
-        <item itemvalue="JUnit.FirstTest.tempTest" />
       </list>
     </recent_temporary>
   </component>
@@ -286,39 +285,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest_saveArticleToFavorites - 2018.07.29 at 00h 11m 59s.xml">
-      <configuration name="FirstTest.saveArticleToFavorites" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 19m 05s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.29 at 00h 14m 21s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 19m 53s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_searchAndCheckSearchResults - 2018.07.29 at 00h 14m 58s.xml">
-      <configuration name="FirstTest.searchAndCheckSearchResults" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 21m 43s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.29 at 00h 17m 40s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 31m 49s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest - 2018.07.29 at 11h 34m 20s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 32m 33s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_saveArticleToFavorites - 2018.07.29 at 11h 35m 37s.xml">
-      <configuration name="FirstTest.saveArticleToFavorites" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 33m 15s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_saveArticleToFavorites - 2018.07.29 at 11h 40m 36s.xml">
-      <configuration name="FirstTest.saveArticleToFavorites" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 33m 43s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_saveArticleToFavorites - 2018.07.29 at 11h 41m 50s.xml">
-      <configuration name="FirstTest.saveArticleToFavorites" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 35m 06s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_saveArticleToFavorites - 2018.07.29 at 11h 42m 30s.xml">
-      <configuration name="FirstTest.saveArticleToFavorites" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 35m 35s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FirstTest_saveArticleToFavorites - 2018.07.29 at 11h 48m 06s.xml">
-      <configuration name="FirstTest.saveArticleToFavorites" configurationId="JUnit" />
+    <history-entry file="FirstTest_assertTitle - 2018.07.29 at 12h 36m 09s.xml">
+      <configuration name="FirstTest.assertTitle" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="830" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -329,7 +328,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38624337" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3425926" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -483,8 +482,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="134" column="49" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="49" />
+        <state relative-caret-position="2791">
+          <caret line="520" lean-forward="true" selection-start-line="520" selection-end-line="520" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />

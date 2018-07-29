@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -255,7 +256,7 @@ public class FirstTest {
 
         waitForElementAndClick(
                 By.xpath(createdReadListXPath),
-                "Cannot find " + readListName +  " Read list",
+                "Cannot find " + readListName + " Read list",
                 5
         );
 
@@ -286,7 +287,7 @@ public class FirstTest {
 
         waitForElementAndClick(
                 By.xpath(createdReadListXPath),
-                "Cannot find " + readListName +  " Read list",
+                "Cannot find " + readListName + " Read list",
                 5
         );
 
@@ -338,6 +339,49 @@ public class FirstTest {
                 ">>>>  Title '" + currentArticleTitle + "' not equals '" + articleTitle_02 + "'",
                 articleTitle_02,
                 currentArticleTitle);
+
+
+    }
+
+    @Test
+    public void assertTitle() {
+
+        String searchRequest = "Appium";
+
+        assertElementPresent(
+                By.id("org.wikipedia:id/search_container"),
+                "Search container not found"
+        );
+
+        waitForElementAndClick(
+                By.id("org.wikipedia:id/search_container"),
+                ">>>> Search container not found",
+                5
+        );
+
+        waitForElementAndSendKeys(
+                By.id("org.wikipedia:id/search_src_text"),
+                searchRequest,
+                ">>>> Search input not found",
+                5
+        );
+
+        List<WebElement> searchResults = webElementsList(
+                By.id("org.wikipedia:id/page_list_item_title"),
+                ">>>> Search results not found",
+                15
+        );
+
+        int countResults = searchResults.size();
+        System.out.println("Results per page: " + countResults);
+        int articleNumber = getRandomNumberInRange(0, countResults - 1);
+        WebElement article_01 = searchResults.get(articleNumber);
+        article_01.click();
+
+        assertElementPresent(
+                By.id("org.wikipedia:id/view_page_title_text"),
+                ">>>>  Article title not found"
+        );
 
 
     }
@@ -462,6 +506,15 @@ public class FirstTest {
                 .moveTo(endX, startY)
                 .release()
                 .perform();
+    }
+
+    private void assertElementPresent(By by, String error_message) {
+        try {
+            WebElement element = driver.findElement(by);
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("An element '" + by.toString() + "' supposed to be present: " + error_message);
+        }
+
     }
 
 }
