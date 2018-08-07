@@ -19,6 +19,8 @@ public class ReadListPageObject extends MainPageObject {
         super(driver);
     }
 
+    // TEMPLATES METHODS //
+
     private static String searchCreatedReadListXPath(String readListName) {
         return CREATED_READ_LIST.replace("{SUBSTRING}", readListName);
     }
@@ -26,6 +28,8 @@ public class ReadListPageObject extends MainPageObject {
     private static String savedArticle(String articleTitle) {
         return SAVED_ARTICLE.replace("{SUBSTRING}", articleTitle);
     }
+
+    // TEMPLATES METHODS //
 
     public void clickOnCreatedRedList(String readListName) {
         String currentReadListXPath = searchCreatedReadListXPath(readListName);

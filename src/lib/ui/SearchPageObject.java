@@ -19,12 +19,24 @@ public class SearchPageObject extends MainPageObject {
             ADD_TO_READLIST_BUTTON = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.LinearLayout[3]",
             GOT_IT_BUTTON = "org.wikipedia:id/onboarding_button",
             INPUT_READ_LIST_NAME = "org.wikipedia:id/text_input",
-            DIALOG_OK_BUTTON = "android:id/button1";
+            DIALOG_OK_BUTTON = "android:id/button1",
+            SEARCH_RESULT = "//*[@text='{ARTICLE_DESCRIPTION}']/../*[@text='{ARTICLE_TITLE}']/..";
+
 
 
     public SearchPageObject(AppiumDriver driver) {
         super(driver);
     }
+
+
+    // TEMPLATES METHODS //
+
+    private static String searchResultXPathByTitleAndDescription(String title, String description){
+        String editXpath = SEARCH_RESULT.replace("{ARTICLE_TITLE}", title);
+        return editXpath.replace("{ARTICLE_DESCRIPTION}", description);
+    }
+
+    // TEMPLATES METHODS //
 
     public void initSearchInput(){
         this.waitForElementAndClick(By.id(SEARCH_INIT_ELEMENT), "Cannot find and click search init element", 5);
@@ -116,6 +128,16 @@ public class SearchPageObject extends MainPageObject {
     public void clickOnMyReadListsButton(){
         this.waitForElementAndClick(By.xpath(MY_READ_LIST_BUTTON), ">>>> 'My Lists' button not found", 5);
         this.waitForElementNotPresent(By.id("org.wikipedia:id/single_fragment_toolbar_wordmark"), ">>>> Home page still displayed", 5);
+    }
+
+    public WebElement waitForElementByTitleAndDescription(String title, String description){
+        String finalXpath = searchResultXPathByTitleAndDescription(title, description);
+        WebElement searchResult = this.waitForElementPresent(
+                By.xpath(finalXpath),
+                ">>>>>> Cannot find article by title: " + "'" + title + "'"+ " and description: " + "'"+ description + "'" + " in search results",
+                15
+        );
+        return searchResult;
     }
 
 
