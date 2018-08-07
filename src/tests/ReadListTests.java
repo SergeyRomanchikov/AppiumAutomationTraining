@@ -1,64 +1,24 @@
+package tests;
+
 import lib.CoreTestCase;
 import lib.ui.ArticlePageObject;
 import lib.ui.MainPageObject;
 import lib.ui.ReadListPageObject;
 import lib.ui.SearchPageObject;
-import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static lib.ui.MainPageObject.checkTextValueInElement;
 import static lib.ui.MainPageObject.getRandomNumberInRange;
 
-public class FirstTest extends CoreTestCase {
-
-    private MainPageObject MainPageObject;
+public class ReadListTests extends CoreTestCase {
+    private lib.ui.MainPageObject MainPageObject;
 
     protected void setUp() throws Exception {
         super.setUp();
 
         MainPageObject = new MainPageObject(driver);
-    }
-
-    @Test
-    public void testSearchLineTextValue() {
-
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-
-        SearchPageObject.initSearchInput();
-        checkTextValueInElement(SearchPageObject.searchLineElement(), "Search…");
-
-    }
-
-    @Test
-    public void testSearchResultsCountAndCancelSearch() {
-
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-
-        SearchPageObject.initSearchInput();
-        SearchPageObject.inputSearchRequest("Java");
-        List<WebElement> searchResultElements = SearchPageObject.searchResultElements();
-        Assert.assertTrue(
-                ">>>> Multiple results not found",
-                searchResultElements.size() > 1
-        );
-        SearchPageObject.clickCancelSearchButton();
-        SearchPageObject.waitForElementsNotPresent(searchResultElements);
-
-    }
-
-    @Test
-    public void testSearchAndCheckSearchResults() {
-
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-
-        String searchRequest = "Apple";
-        SearchPageObject.initSearchInput();
-        SearchPageObject.inputSearchRequest(searchRequest);
-        SearchPageObject.checkElementsInListContainsTextValuePO(SearchPageObject.searchResultElements(), searchRequest);
-
     }
 
     @Test
@@ -141,20 +101,4 @@ public class FirstTest extends CoreTestCase {
 
 
     }
-
-    @Test
-    public void testAssertTitle() {
-
-        String searchRequest = "Appium";
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
-        SearchPageObject.assertSearchLinePresent();
-        SearchPageObject.initSearchInput();
-        SearchPageObject.inputSearchRequest(searchRequest);
-        SearchPageObject.clickOnRandomSearchResult();
-
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
-        ArticlePageObject.assertArticleTitlePresent();
-    }
 }
-
-
