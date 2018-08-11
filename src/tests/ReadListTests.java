@@ -5,6 +5,7 @@ import lib.ui.ArticlePageObject;
 import lib.ui.MainPageObject;
 import lib.ui.ReadListPageObject;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
@@ -27,7 +28,7 @@ public class ReadListTests extends CoreTestCase {
         String searchRequest = "Apple";
         String readListName = "My Articles";
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.inputSearchRequest(searchRequest);
 

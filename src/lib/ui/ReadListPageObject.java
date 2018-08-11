@@ -1,7 +1,6 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -9,10 +8,10 @@ import java.util.List;
 public class ReadListPageObject extends MainPageObject {
 
     private static final String
-            CREATED_READ_LIST = "//*[contains(@text, '{SUBSTRING}')]",
-            SAVED_ARTICLES = "org.wikipedia:id/page_list_item_title",
-            SAVED_ARTICLE = "//*[contains(@text, '{SUBSTRING}')]",
-            SNACK_BAR = "org.wikipedia:id/snackbar_text";
+            CREATED_READ_LIST = "xpath://*[contains(@text, '{SUBSTRING}')]",
+            SAVED_ARTICLES = "id:org.wikipedia:id/page_list_item_title",
+            SAVED_ARTICLE = "xpath://*[contains(@text, '{SUBSTRING}')]",
+            SNACK_BAR = "id:org.wikipedia:id/snackbar_text";
 
 
     public ReadListPageObject(AppiumDriver driver) {
@@ -33,12 +32,12 @@ public class ReadListPageObject extends MainPageObject {
 
     public void clickOnCreatedRedList(String readListName) {
         String currentReadListXPath = searchCreatedReadListXPath(readListName);
-        this.waitForElementAndClick(By.xpath(currentReadListXPath), "Cannot find " + readListName + " Read list", 5);
+        this.waitForElementAndClick(currentReadListXPath, "Cannot find " + readListName + " Read list", 5);
     }
 
     public List<WebElement> savedArticlesElements() {
         return webElementsList(
-                By.id(SAVED_ARTICLES),
+                SAVED_ARTICLES,
                 ">>>> Saved articles not found",
                 5
         );
@@ -46,7 +45,7 @@ public class ReadListPageObject extends MainPageObject {
 
     public int countSavedArticlesPerPage() {
         List<WebElement> savedArticles = webElementsList(
-                By.id(SAVED_ARTICLES),
+                SAVED_ARTICLES,
                 ">>>> Saved articles not found (error while counting...)",
                 5
         );
@@ -61,12 +60,12 @@ public class ReadListPageObject extends MainPageObject {
         String articleToDeleteXpath = savedArticle(articleToDeleteTitle);
         System.out.println("Article to delete: " + articleToDeleteTitle);
         swipeElementToLeft(
-                By.xpath(articleToDeleteXpath + "/../../*[@resource-id='org.wikipedia:id/page_list_item_action_primary']"),
+                articleToDeleteXpath + "/../../*[@resource-id='org.wikipedia:id/page_list_item_action_primary']",
                 ">>>> Cannot swipe to the left on element"
         );
-        waitForElementPresent(By.id(SNACK_BAR), ">>>> Snackbar message not displayed");
+        waitForElementPresent(SNACK_BAR, ">>>> Snackbar message not displayed");
         waitForElementNotPresent(
-                By.xpath(articleToDeleteXpath),
+                articleToDeleteXpath,
                 ">>>> Element " + "'" + articleToDeleteTitle + "'" + " still displayed",
                 10
         );
@@ -76,7 +75,7 @@ public class ReadListPageObject extends MainPageObject {
     public void checkSavedArticleExistsByTitle(String articleTitle) {
         String articleToCheckXpath = savedArticle(articleTitle);
         this.waitForElementPresent(
-                By.xpath(articleToCheckXpath),
+                articleToCheckXpath,
                 ">>>> Article " + articleTitle + " not displayed",
                 5);
     }
@@ -84,7 +83,7 @@ public class ReadListPageObject extends MainPageObject {
     public void tapOnSavedArticleByTitle(String articleTitle) {
         String articleToClickXpath = savedArticle(articleTitle);
         this.waitForElementAndClick(
-                By.xpath(articleToClickXpath),
+                articleToClickXpath,
                 ">>>> Article " + articleTitle + " not found",
                 5);
     }

@@ -3,8 +3,12 @@ package tests;
 import lib.CoreTestCase;
 import lib.ui.MainPageObject;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.SearchPageObjectFactory;
+import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import sun.applet.Main;
 
 import java.util.List;
 
@@ -14,7 +18,7 @@ public class SearchTests extends CoreTestCase {
     @Test
     public void testSearchLineTextValue() {
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         SearchPageObject.initSearchInput();
         checkTextValueInElement(SearchPageObject.searchLineElement(), "Search…");
@@ -24,7 +28,7 @@ public class SearchTests extends CoreTestCase {
     @Test
     public void testSearchResultsCountAndCancelSearch() {
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         SearchPageObject.initSearchInput();
         SearchPageObject.inputSearchRequest("Java");
@@ -41,7 +45,7 @@ public class SearchTests extends CoreTestCase {
     @Test
     public void testSearchAndCheckSearchResults() {
 
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         String searchRequest = "Apple";
         SearchPageObject.initSearchInput();
@@ -53,7 +57,7 @@ public class SearchTests extends CoreTestCase {
 
     @Test
     public void testWaitForArticlesByTitleAndDescription() {
-        SearchPageObject SearchPageObject = new SearchPageObject(driver);
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.inputSearchRequest("Marvel");
 
@@ -63,4 +67,35 @@ public class SearchTests extends CoreTestCase {
 
     }
 
+    @Test
+    public void testTemp(){
+        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
+        MainPageObject MainPageObject = new MainPageObject(driver);
+
+        SearchPageObject.initSearchInput();
+        SearchPageObject.inputSearchRequest("Apple");
+
+        WebElement temp = SearchPageObject.waitForElementPresent(
+                "xpath://XCUIElementTypeCell",
+                "...",
+                15
+        );
+
+        List<WebElement> list = MainPageObject.webElementsList("xpath://XCUIElementTypeCell",
+                "...",
+                15);
+        System.out.println(list);
+        System.out.println(list.size());
+
+
+        for (WebElement element : list) {
+            String name = element.getAttribute("label");
+            System.out.println(name);
+        }
+
+
+
+
+
+    }
 }
