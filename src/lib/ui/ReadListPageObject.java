@@ -1,6 +1,7 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 
@@ -12,7 +13,9 @@ abstract public class ReadListPageObject extends MainPageObject {
             CREATED_READ_LIST,
             SAVED_ARTICLES,
             SAVED_ARTICLE,
-            SNACK_BAR;
+            SNACK_BAR,
+            UNSAVE_BUTTON,
+            EDIT_BUTTON;
 
 
     public ReadListPageObject(AppiumDriver driver) {
@@ -55,7 +58,7 @@ abstract public class ReadListPageObject extends MainPageObject {
     }
 
     public void deleteLastArticleInList(List<WebElement> savedArticles) {
-        if(lib.Platform.getInstance().isAndroid()){
+        if (lib.Platform.getInstance().isAndroid()) {
             int countSavedArticles = savedArticles.size();
             WebElement articleToDelete = savedArticles.get(countSavedArticles - 1);
             String articleToDeleteTitle = articleToDelete.getAttribute("text");
@@ -71,13 +74,28 @@ abstract public class ReadListPageObject extends MainPageObject {
                     ">>>> Element " + "'" + articleToDeleteTitle + "'" + " still displayed",
                     10
             );
-        }else if(lib.Platform.getInstance().isIOS()){
-            int countSavedArticles = savedArticles.size();
-            WebElement articleToDelete = savedArticles.get(countSavedArticles - 1);
-            swipeLeftByElement(articleToDelete);
-
         }
 
+
+    }
+
+    public void deleteArticleByTitle(String title) {
+        waitForElementAndClick(
+                EDIT_BUTTON,
+                ">>>> Can not find Edit Button",
+                10
+        );
+        String locator = savedArticle(title);
+        waitForElementAndClick(
+                locator,
+                ">>>> Can not find element by title:" + title,
+                10
+        );
+        waitForElementAndClick(
+                UNSAVE_BUTTON,
+                ">>>> Can not find Unsave button",
+                10
+        );
 
     }
 
@@ -98,11 +116,11 @@ abstract public class ReadListPageObject extends MainPageObject {
     }
 
     public String getArticleTitle(WebElement element) {
-        if (lib.Platform.getInstance().isAndroid()){
+        if (lib.Platform.getInstance().isAndroid()) {
             return element.getAttribute("text");
-        }else if(lib.Platform.getInstance().isIOS()){
+        } else if (lib.Platform.getInstance().isIOS()) {
             return element.getAttribute("name");
-        }else
+        } else
             return null;
     }
 }

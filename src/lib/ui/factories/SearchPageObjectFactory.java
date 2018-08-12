@@ -6,12 +6,11 @@ import lib.ui.SearchPageObject;
 import lib.ui.android.AndroidSearchPageObject;
 import lib.ui.ios.iOSSearchPageObject;
 
-public class SearchPageObjectFactory
-{
-    public static SearchPageObject get(AppiumDriver driver){
-        if(Platform.getInstance().isAndroid()){
+public class SearchPageObjectFactory {
+    public static SearchPageObject get(AppiumDriver driver) {
+        if (Platform.getInstance().isAndroid()) {
             return new AndroidSearchPageObject(driver);
-        }else {
+        } else {
             return new iOSSearchPageObject(driver);
         }
     }

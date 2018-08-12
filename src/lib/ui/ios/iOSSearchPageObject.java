@@ -15,7 +15,6 @@ public class iOSSearchPageObject extends SearchPageObject {
         ADD_TO_READLIST_BUTTON = "id:Save for later";
         WIKIPEDIA_LOGO_ON_MAIN_PAGE = "id:org.wikipedia:id/single_fragment_toolbar_wordmark";
         SEARCH_RESULT = "xpath://XCUIElementTypeLink[contains(@name, '{ARTICLE_TITLE}\n{ARTICLE_DESCRIPTION}')]";
-
     }
 
     public iOSSearchPageObject(AppiumDriver driver) {

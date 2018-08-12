@@ -15,37 +15,37 @@ public class Platform {
 
     private static Platform instance;
 
-    private Platform() {}
+    private Platform() {
+    }
 
-    public static Platform getInstance()
-    {
-        if(instance == null){
+    public static Platform getInstance() {
+        if (instance == null) {
             instance = new Platform();
         }
         return instance;
     }
 
-    public AppiumDriver getDriver() throws Exception{
+    public AppiumDriver getDriver() throws Exception {
         URL URL = new URL(APPIUM_URL);
-        if(this.isAndroid()){
+        if (this.isAndroid()) {
             return new AndroidDriver(URL, this.getAndroidDesiredCapabilities());
-        }else if(this.isIOS()){
+        } else if (this.isIOS()) {
             return new IOSDriver(URL, this.getIOSDesiredCapabilities());
-        }else
+        } else
             throw new Exception("Cannot detect type of the Driver. Platform value is: " + this.getPlatformVar());
     }
 
 
-    public boolean isAndroid(){
+    public boolean isAndroid() {
         return isPlatform(PLATFORM_ANDROID);
     }
 
-    public boolean isIOS(){
+    public boolean isIOS() {
         return isPlatform(PLATFORM_IOS);
     }
 
 
-    private DesiredCapabilities getAndroidDesiredCapabilities(){
+    private DesiredCapabilities getAndroidDesiredCapabilities() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("platformName", "Android");
@@ -59,7 +59,7 @@ public class Platform {
         return capabilities;
     }
 
-    private DesiredCapabilities getIOSDesiredCapabilities(){
+    private DesiredCapabilities getIOSDesiredCapabilities() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("platformName", "iOS");
@@ -70,16 +70,14 @@ public class Platform {
         return capabilities;
     }
 
-    private boolean isPlatform(String myPlatform){
+    private boolean isPlatform(String myPlatform) {
         String platform = this.getPlatformVar();
         return myPlatform.equals(platform);
     }
 
-    private String getPlatformVar(){
+    private String getPlatformVar() {
         return System.getenv("PLATFORM");
     }
-
-
 
 
 }

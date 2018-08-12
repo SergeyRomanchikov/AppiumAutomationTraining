@@ -10,7 +10,7 @@ public class AndroidArticlePageObject extends ArticlePageObject {
         ARTICLE_TITLE = "id:org.wikipedia:id/view_page_title_text";
     }
 
-    public AndroidArticlePageObject(AppiumDriver driver){
+    public AndroidArticlePageObject(AppiumDriver driver) {
         super(driver);
     }
 }

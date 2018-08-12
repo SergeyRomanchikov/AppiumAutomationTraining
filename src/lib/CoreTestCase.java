@@ -27,14 +27,13 @@ public class CoreTestCase extends TestCase {
         super.tearDown();
     }
 
-    private void skipWelcomePage(){
+    private void skipWelcomePage() {
 
-        if(Platform.getInstance().isIOS()){
+        if (Platform.getInstance().isIOS()) {
             WelcomePageObject WelcomePageObject = new WelcomePageObject(driver);
             WelcomePageObject.clickSkip();
         }
     }
-
 
 
 }

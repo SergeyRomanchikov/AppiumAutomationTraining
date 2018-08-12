@@ -11,7 +11,8 @@ public class AndroidReadListPageObject extends ReadListPageObject {
         SAVED_ARTICLE = "xpath://*[contains(@text, '{SUBSTRING}')]";
         SNACK_BAR = "id:org.wikipedia:id/snackbar_text";
     }
-    public AndroidReadListPageObject(AppiumDriver driver){
+
+    public AndroidReadListPageObject(AppiumDriver driver) {
         super(driver);
     }
 }

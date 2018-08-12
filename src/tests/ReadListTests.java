@@ -1,6 +1,5 @@
 package tests;
 
-import io.appium.java_client.TouchAction;
 import lib.CoreTestCase;
 import lib.Platform;
 import lib.ui.ArticlePageObject;
@@ -14,8 +13,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
-
-import static lib.ui.MainPageObject.getRandomNumberInRange;
 
 public class ReadListTests extends CoreTestCase {
     private lib.ui.MainPageObject MainPageObject;
@@ -46,13 +43,13 @@ public class ReadListTests extends CoreTestCase {
 
         // Add to ReadList --- Article_01 //
 
-        if(Platform.getInstance().isIOS()) {
+        if (Platform.getInstance().isIOS()) {
             article_01.click();
             SearchPageObject.clickAddToReadListButton();
             SearchPageObject.clickOnCloseSyncDialog();
             ArticlePageObject.clickOnBackButton();
             SearchPageObject.initSearchInput();
-        }else if(Platform.getInstance().isAndroid()){
+        } else if (Platform.getInstance().isAndroid()) {
             SearchPageObject.longTapOnElement(article_01);
             SearchPageObject.clickAddToReadListButton();
             SearchPageObject.waitForLongTapMenuNotPresent();
@@ -62,13 +59,13 @@ public class ReadListTests extends CoreTestCase {
 
         // Add to ReadList --- Article_02 //
 
-        if(Platform.getInstance().isIOS()){
+        if (Platform.getInstance().isIOS()) {
             List<WebElement> results = SearchPageObject.searchResultElements();
             WebElement article_2 = results.get(1);
             article_2.click();
             SearchPageObject.clickAddToReadListButton();
             ArticlePageObject.clickOnBackButton();
-        }else if(Platform.getInstance().isAndroid()){
+        } else if (Platform.getInstance().isAndroid()) {
             SearchPageObject.longTapOnElement(article_02);
             SearchPageObject.clickAddToReadListButton();
             SearchPageObject.waitForLongTapMenuNotPresent();
@@ -82,7 +79,7 @@ public class ReadListTests extends CoreTestCase {
         SearchPageObject.waitForElementsNotPresent(searchResults);
         SearchPageObject.clickOnMyReadListsButton();
 
-        if(Platform.getInstance().isAndroid()){
+        if (Platform.getInstance().isAndroid()) {
             ReadListPageObject.clickOnCreatedRedList(readListName);
         }
 
@@ -104,12 +101,7 @@ public class ReadListTests extends CoreTestCase {
 
         // Delete element from read list //
 
-        WebElement element = MainPageObject.waitForElementPresent(
-                "xpath://XCUIElementTypeLink[contains(@name, 'Edible fruit')]",
-                "error",
-                10
-        );
-
+/*
         TouchAction action = new TouchAction(driver);
 
         int left_x = element.getLocation().getX();
@@ -130,17 +122,29 @@ public class ReadListTests extends CoreTestCase {
         action.moveTo(offset_x, 0);
         action.release();
         action.perform();
+        */
 
-        ReadListPageObject.deleteLastArticleInList(savedArticles);
+        if (Platform.getInstance().isAndroid()) {
+            ReadListPageObject.deleteLastArticleInList(savedArticles);
+        } else if (Platform.getInstance().isIOS()) {
+            ReadListPageObject.deleteArticleByTitle(articleToDeleteTitle);
+        }
 
         // Open saved article and check Title//
 
-        /*
-
         ReadListPageObject.tapOnSavedArticleByTitle(articleToCheckTitle);
-        String currentArticleTitle = ArticlePageObject.getArticleTitle();
-        ArticlePageObject.assertTitle(currentArticleTitle, currentArticleTitle);
-
-        */
+        if (Platform.getInstance().isAndroid()) {
+            String currentArticleTitle = ArticlePageObject.getArticleTitle();
+            ArticlePageObject.assertTitle(currentArticleTitle, currentArticleTitle);
+        } else if (Platform.getInstance().isIOS()) {
+            // System.out.println(articleToCheckTitle);
+            String description = SearchPageObject.getDescriptionValueFromSearchResult(articleToCheckTitle);
+            // System.out.println(description);
+            MainPageObject.waitForElementPresent(
+                    "id:" + description,
+                    "...",
+                    30
+            );
+        }
     }
 }

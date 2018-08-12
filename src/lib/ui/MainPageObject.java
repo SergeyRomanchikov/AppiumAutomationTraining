@@ -58,14 +58,14 @@ public class MainPageObject {
     }
 
     public static void checkTextValueInElement(WebElement elementForCheck, String targetValue) {
-        if (Platform.getInstance().isAndroid()){
+        if (Platform.getInstance().isAndroid()) {
             String receivedTextValue = elementForCheck.getAttribute("text");
             Assert.assertEquals(
                     ">>>> Mismatch values",
                     targetValue,
                     receivedTextValue
             );
-        }else if(Platform.getInstance().isIOS()){
+        } else if (Platform.getInstance().isIOS()) {
             String receivedTextValue = elementForCheck.getText();
             Assert.assertEquals(
                     ">>>> Mismatch values",
@@ -163,7 +163,7 @@ public class MainPageObject {
                 .perform();
     }
 
-    public void swipeLeftByElement(WebElement element){
+    public void swipeLeftByElement(WebElement element) {
         int left_x = element.getLocation().getX();
         int right_x = left_x + element.getSize().getWidth();
         int upper_y = element.getLocation().getY();
@@ -174,7 +174,7 @@ public class MainPageObject {
         action.press(right_x, middle_y);
         action.waitAction(300);
 
-        int offset_x = ( -1 * element.getSize().getWidth());
+        int offset_x = (-1 * element.getSize().getWidth());
         action.moveTo(offset_x, 0);
         action.release();
         action.perform();
@@ -195,14 +195,14 @@ public class MainPageObject {
         driver.navigate().back();
     }
 
-    private By getLocatorByString(String locator_with_type){
+    private By getLocatorByString(String locator_with_type) {
         String[] exploded_locator = locator_with_type.split(Pattern.quote(":"), 2);
         String by_type = exploded_locator[0];
         String locator = exploded_locator[1];
         // System.out.println(locator);
-        if(by_type.equals("xpath")){
+        if (by_type.equals("xpath")) {
             return By.xpath(locator);
-        }else if (by_type.equals("id")) {
+        } else if (by_type.equals("id")) {
             return By.id(locator);
         } else {
             throw new IllegalArgumentException("Cannot get type of locator. Locator: " + locator_with_type);

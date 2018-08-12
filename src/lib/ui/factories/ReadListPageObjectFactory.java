@@ -7,10 +7,10 @@ import lib.ui.android.AndroidReadListPageObject;
 import lib.ui.ios.iOSReadListPageObject;
 
 public class ReadListPageObjectFactory {
-    public static ReadListPageObject get(AppiumDriver driver){
+    public static ReadListPageObject get(AppiumDriver driver) {
         if (Platform.getInstance().isAndroid()) {
             return new AndroidReadListPageObject(driver);
-        }else {
+        } else {
             return new iOSReadListPageObject(driver);
         }
     }

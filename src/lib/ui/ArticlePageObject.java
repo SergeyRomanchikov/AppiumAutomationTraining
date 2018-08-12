@@ -3,6 +3,7 @@ package lib.ui;
 import io.appium.java_client.AppiumDriver;
 import lib.Platform;
 import org.junit.Assert;
+import org.openqa.selenium.NoSuchElementException;
 
 
 abstract public class ArticlePageObject extends MainPageObject {
@@ -15,18 +16,23 @@ abstract public class ArticlePageObject extends MainPageObject {
         super(driver);
     }
 
-    public void assertArticleTitlePresent() {
-        this.assertElementPresent(ARTICLE_TITLE, ">>>>  Article title not found");
+    public void assertArticleTitlePresent(String title) {
+        if (Platform.getInstance().isAndroid()) {
+            this.assertElementPresent(ARTICLE_TITLE, ">>>>  Article title not found");
+        } else if (Platform.getInstance().isIOS()) {
+            String articleTitle = ARTICLE_TITLE.replace("{SUBSTRING}", title);
+            this.assertElementPresent(articleTitle, ">>>>  Article title not found");
+        }
     }
 
     public String getArticleTitle() {
-        if (Platform.getInstance().isAndroid()){
+        if (Platform.getInstance().isAndroid()) {
             return this.waitForElementPresent(
                     ARTICLE_TITLE,
                     ">>>> Error while getting the text value",
                     15
             ).getAttribute("text");
-        }else {
+        } else {
             return this.waitForElementPresent(
                     ARTICLE_TITLE,
                     ">>>> Error while getting the text value",
@@ -44,8 +50,22 @@ abstract public class ArticlePageObject extends MainPageObject {
 
     }
 
-    public void clickOnBackButton(){
+    public void clickOnBackButton() {
         this.waitForElementAndClick(BACK_BUTTON, " >>>>> Can not find Back Button", 10);
+    }
+
+
+    public void assertArticlePresent(String articleTitle) {
+        String articleXpath = (articleTitle);
+        try {
+            this.waitForElementPresent(
+                    articleXpath,
+                    " >>>>> Article " + articleTitle + " not found",
+                    30
+            );
+        } catch (NoSuchElementException e) {
+            throw new NoSuchElementException("An element '" + articleTitle + "' supposed to be present");
+        }
     }
 
 

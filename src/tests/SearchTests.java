@@ -2,14 +2,10 @@ package tests;
 
 import lib.CoreTestCase;
 import lib.Platform;
-import lib.ui.MainPageObject;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.SearchPageObjectFactory;
-import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import sun.applet.Main;
 
 import java.util.List;
 
@@ -71,24 +67,4 @@ public class SearchTests extends CoreTestCase {
 
     }
 
-    @Test
-    public void testTemp() {
-        SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
-        MainPageObject MainPageObject = new MainPageObject(driver);
-
-        SearchPageObject.initSearchInput();
-        // SearchPageObject.inputSearchRequest("Marvel");
-
-        WebElement element = MainPageObject.waitForElementPresent(
-                "xpath://XCUIElementTypeSearchField[contains(@value, 'Search Wikipedia')]",
-                ">>> error",
-                10
-        );
-
-        String text = element.getText();
-        System.out.println(text);
-
-        checkTextValueInElement(element, "Search Wikipedia");
-
-    }
 }
