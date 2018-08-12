@@ -1,6 +1,7 @@
 package tests;
 
 import lib.CoreTestCase;
+import lib.Platform;
 import lib.ui.MainPageObject;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.SearchPageObjectFactory;
@@ -21,8 +22,11 @@ public class SearchTests extends CoreTestCase {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
         SearchPageObject.initSearchInput();
-        checkTextValueInElement(SearchPageObject.searchLineElement(), "Search…");
-
+        if (Platform.getInstance().isIOS()) {
+            checkTextValueInElement(SearchPageObject.searchLineElement(), "Search Wikipedia");
+        } else if (Platform.getInstance().isAndroid()) {
+            checkTextValueInElement(SearchPageObject.searchLineElement(), "Search…");
+        }
     }
 
     @Test
@@ -68,34 +72,23 @@ public class SearchTests extends CoreTestCase {
     }
 
     @Test
-    public void testTemp(){
+    public void testTemp() {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         MainPageObject MainPageObject = new MainPageObject(driver);
 
         SearchPageObject.initSearchInput();
-        SearchPageObject.inputSearchRequest("Apple");
+        // SearchPageObject.inputSearchRequest("Marvel");
 
-        WebElement temp = SearchPageObject.waitForElementPresent(
-                "xpath://XCUIElementTypeCell",
-                "...",
-                15
+        WebElement element = MainPageObject.waitForElementPresent(
+                "xpath://XCUIElementTypeSearchField[contains(@value, 'Search Wikipedia')]",
+                ">>> error",
+                10
         );
 
-        List<WebElement> list = MainPageObject.webElementsList("xpath://XCUIElementTypeCell",
-                "...",
-                15);
-        System.out.println(list);
-        System.out.println(list.size());
+        String text = element.getText();
+        System.out.println(text);
 
-
-        for (WebElement element : list) {
-            String name = element.getAttribute("label");
-            System.out.println(name);
-        }
-
-
-
-
+        checkTextValueInElement(element, "Search Wikipedia");
 
     }
 }

@@ -21,6 +21,7 @@ abstract public class SearchPageObject extends MainPageObject {
             INPUT_READ_LIST_NAME,
             DIALOG_OK_BUTTON,
             WIKIPEDIA_LOGO_ON_MAIN_PAGE,
+            SYNC_DIALOG_CLOSE_BUTTON,
             SEARCH_RESULT;
 
 
@@ -135,8 +136,16 @@ abstract public class SearchPageObject extends MainPageObject {
     }
 
     public void clickOnMyReadListsButton(){
-        this.waitForElementAndClick(MY_READ_LIST_BUTTON, ">>>> 'My Lists' button not found", 5);
-        this.waitForElementNotPresent(WIKIPEDIA_LOGO_ON_MAIN_PAGE, ">>>> Home page still displayed", 5);
+        if(Platform.getInstance().isAndroid()){
+            this.waitForElementAndClick(MY_READ_LIST_BUTTON, ">>>> 'My Lists' button not found", 5);
+            this.waitForElementNotPresent(WIKIPEDIA_LOGO_ON_MAIN_PAGE, ">>>> Home page still displayed", 5);
+        }else if(Platform.getInstance().isIOS()){
+            this.waitForElementAndClick(MY_READ_LIST_BUTTON, ">>>> 'My Lists' button not found", 5);
+        }
+    }
+
+    public void clickOnCloseSyncDialog(){
+        this.waitForElementAndClick(SYNC_DIALOG_CLOSE_BUTTON, ">>>> Can not find close dialog button", 10);
     }
 
     public WebElement waitForElementByTitleAndDescription(String title, String description){

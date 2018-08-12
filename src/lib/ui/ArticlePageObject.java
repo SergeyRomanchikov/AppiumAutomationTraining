@@ -1,13 +1,15 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import lib.Platform;
 import org.junit.Assert;
 
 
-public class ArticlePageObject extends MainPageObject {
+abstract public class ArticlePageObject extends MainPageObject {
 
-    private static final String
-            ARTICLE_TITLE = "id:org.wikipedia:id/view_page_title_text";
+    protected static String
+            ARTICLE_TITLE,
+            BACK_BUTTON;
 
     public ArticlePageObject(AppiumDriver driver) {
         super(driver);
@@ -18,11 +20,20 @@ public class ArticlePageObject extends MainPageObject {
     }
 
     public String getArticleTitle() {
-        return this.waitForElementPresent(
-                ARTICLE_TITLE,
-                ">>>> Error while getting the text value",
-                15
-        ).getAttribute("text");
+        if (Platform.getInstance().isAndroid()){
+            return this.waitForElementPresent(
+                    ARTICLE_TITLE,
+                    ">>>> Error while getting the text value",
+                    15
+            ).getAttribute("text");
+        }else {
+            return this.waitForElementPresent(
+                    ARTICLE_TITLE,
+                    ">>>> Error while getting the text value",
+                    15
+            ).getAttribute("name");
+        }
+
     }
 
     public void assertTitle(String articleToCheckTitle, String currentArticleTitle) {
@@ -31,6 +42,10 @@ public class ArticlePageObject extends MainPageObject {
                 articleToCheckTitle,
                 currentArticleTitle);
 
+    }
+
+    public void clickOnBackButton(){
+        this.waitForElementAndClick(BACK_BUTTON, " >>>>> Can not find Back Button", 10);
     }
 
 

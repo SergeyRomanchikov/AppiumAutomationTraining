@@ -2,6 +2,7 @@ package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
+import lib.Platform;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -57,12 +58,28 @@ public class MainPageObject {
     }
 
     public static void checkTextValueInElement(WebElement elementForCheck, String targetValue) {
-        String receivedTextValue = elementForCheck.getAttribute("text");
-        Assert.assertEquals(
-                ">>>> Mismatch values",
-                targetValue,
-                receivedTextValue
-        );
+        if (Platform.getInstance().isAndroid()){
+            String receivedTextValue = elementForCheck.getAttribute("text");
+            Assert.assertEquals(
+                    ">>>> Mismatch values",
+                    targetValue,
+                    receivedTextValue
+            );
+        }else if(Platform.getInstance().isIOS()){
+            String receivedTextValue = elementForCheck.getText();
+            Assert.assertEquals(
+                    ">>>> Mismatch values",
+                    targetValue,
+                    receivedTextValue
+            );
+        }
+
+
+    }
+
+    public static void checkSearchFieldContainsText() {
+        if (Platform.getInstance().isIOS()) {
+        }
     }
 
     public List<WebElement> webElementsList(String locator, String message, long timeOutInseconds) {
@@ -146,6 +163,24 @@ public class MainPageObject {
                 .perform();
     }
 
+    public void swipeLeftByElement(WebElement element){
+        int left_x = element.getLocation().getX();
+        int right_x = left_x + element.getSize().getWidth();
+        int upper_y = element.getLocation().getY();
+        int lower_y = upper_y + element.getSize().getHeight();
+        int middle_y = (upper_y + lower_y) / 2;
+
+        TouchAction action = new TouchAction(driver);
+        action.press(right_x, middle_y);
+        action.waitAction(300);
+
+        int offset_x = ( -1 * element.getSize().getWidth());
+        action.moveTo(offset_x, 0);
+        action.release();
+        action.perform();
+
+    }
+
     public void assertElementPresent(String locator, String error_message) {
         By by = getLocatorByString(locator);
         try {
@@ -164,7 +199,7 @@ public class MainPageObject {
         String[] exploded_locator = locator_with_type.split(Pattern.quote(":"), 2);
         String by_type = exploded_locator[0];
         String locator = exploded_locator[1];
-        System.out.println(locator);
+        // System.out.println(locator);
         if(by_type.equals("xpath")){
             return By.xpath(locator);
         }else if (by_type.equals("id")) {

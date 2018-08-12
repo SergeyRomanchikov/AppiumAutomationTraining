@@ -3,6 +3,7 @@ package tests;
 import lib.CoreTestCase;
 import lib.ui.ArticlePageObject;
 import lib.ui.SearchPageObject;
+import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
@@ -17,7 +18,7 @@ public class ArticleTests extends CoreTestCase {
         SearchPageObject.inputSearchRequest(searchRequest);
         SearchPageObject.clickOnRandomSearchResult();
 
-        ArticlePageObject ArticlePageObject = new ArticlePageObject(driver);
+        ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         ArticlePageObject.assertArticleTitlePresent();
     }
 }

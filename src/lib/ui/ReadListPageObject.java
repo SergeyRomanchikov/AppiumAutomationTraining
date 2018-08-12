@@ -1,17 +1,18 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class ReadListPageObject extends MainPageObject {
+abstract public class ReadListPageObject extends MainPageObject {
 
-    private static final String
-            CREATED_READ_LIST = "xpath://*[contains(@text, '{SUBSTRING}')]",
-            SAVED_ARTICLES = "id:org.wikipedia:id/page_list_item_title",
-            SAVED_ARTICLE = "xpath://*[contains(@text, '{SUBSTRING}')]",
-            SNACK_BAR = "id:org.wikipedia:id/snackbar_text";
+    protected static String
+            CREATED_READ_LIST,
+            SAVED_ARTICLES,
+            SAVED_ARTICLE,
+            SNACK_BAR;
 
 
     public ReadListPageObject(AppiumDriver driver) {
@@ -54,21 +55,29 @@ public class ReadListPageObject extends MainPageObject {
     }
 
     public void deleteLastArticleInList(List<WebElement> savedArticles) {
-        int countSavedArticles = savedArticles.size();
-        WebElement articleToDelete = savedArticles.get(countSavedArticles - 1);
-        String articleToDeleteTitle = articleToDelete.getAttribute("text");
-        String articleToDeleteXpath = savedArticle(articleToDeleteTitle);
-        System.out.println("Article to delete: " + articleToDeleteTitle);
-        swipeElementToLeft(
-                articleToDeleteXpath + "/../../*[@resource-id='org.wikipedia:id/page_list_item_action_primary']",
-                ">>>> Cannot swipe to the left on element"
-        );
-        waitForElementPresent(SNACK_BAR, ">>>> Snackbar message not displayed");
-        waitForElementNotPresent(
-                articleToDeleteXpath,
-                ">>>> Element " + "'" + articleToDeleteTitle + "'" + " still displayed",
-                10
-        );
+        if(lib.Platform.getInstance().isAndroid()){
+            int countSavedArticles = savedArticles.size();
+            WebElement articleToDelete = savedArticles.get(countSavedArticles - 1);
+            String articleToDeleteTitle = articleToDelete.getAttribute("text");
+            String articleToDeleteXpath = savedArticle(articleToDeleteTitle);
+            System.out.println("Article to delete: " + articleToDeleteTitle);
+            swipeElementToLeft(
+                    articleToDeleteXpath + "/../../*[@resource-id='org.wikipedia:id/page_list_item_action_primary']",
+                    ">>>> Cannot swipe to the left on element"
+            );
+            waitForElementPresent(SNACK_BAR, ">>>> Snackbar message not displayed");
+            waitForElementNotPresent(
+                    articleToDeleteXpath,
+                    ">>>> Element " + "'" + articleToDeleteTitle + "'" + " still displayed",
+                    10
+            );
+        }else if(lib.Platform.getInstance().isIOS()){
+            int countSavedArticles = savedArticles.size();
+            WebElement articleToDelete = savedArticles.get(countSavedArticles - 1);
+            swipeLeftByElement(articleToDelete);
+
+        }
+
 
     }
 
@@ -86,5 +95,14 @@ public class ReadListPageObject extends MainPageObject {
                 articleToClickXpath,
                 ">>>> Article " + articleTitle + " not found",
                 5);
+    }
+
+    public String getArticleTitle(WebElement element) {
+        if (lib.Platform.getInstance().isAndroid()){
+            return element.getAttribute("text");
+        }else if(lib.Platform.getInstance().isIOS()){
+            return element.getAttribute("name");
+        }else
+            return null;
     }
 }
